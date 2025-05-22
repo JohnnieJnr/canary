@@ -1,0 +1,45 @@
+NAME                                                         READY   STATUS    RESTARTS   AGE
+pod/alertmanager-prometheus-kube-prometheus-alertmanager-0   2/2     Running   0          14m
+pod/canary-demo-75687c458d-6ccsn                             1/1     Running   0          13m
+pod/canary-demo-75687c458d-gldr8                             1/1     Running   0          13m
+pod/canary-demo-75687c458d-s4nvp                             1/1     Running   0          13m
+pod/canary-demo-canary-54c9f8f4b8-gxh5q                      1/1     Running   0          5m20s
+pod/prometheus-grafana-77bcfb9bdb-n8stl                      3/3     Running   0          14m
+pod/prometheus-kube-prometheus-operator-6d9d668dbd-r6l4h     1/1     Running   0          14m
+pod/prometheus-kube-state-metrics-7457555cf7-tj5p4           1/1     Running   0          14m
+pod/prometheus-prometheus-kube-prometheus-prometheus-0       2/2     Running   0          14m
+pod/prometheus-prometheus-node-exporter-brgxw                1/1     Running   0          14m
+
+NAME                                              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+service/alertmanager-operated                     ClusterIP   None             <none>        9093/TCP,9094/TCP,9094/UDP   14m
+service/canary-demo                               ClusterIP   10.104.124.46    <none>        80/TCP                       13m
+service/canary-demo-canary                        ClusterIP   10.109.68.39     <none>        80/TCP                       13m
+service/prometheus-grafana                        ClusterIP   10.111.6.166     <none>        80/TCP                       14m
+service/prometheus-kube-prometheus-alertmanager   ClusterIP   10.96.244.161    <none>        9093/TCP,8080/TCP            14m
+service/prometheus-kube-prometheus-operator       ClusterIP   10.110.14.162    <none>        443/TCP                      14m
+service/prometheus-kube-prometheus-prometheus     ClusterIP   10.97.72.106     <none>        9090/TCP,8080/TCP            14m
+service/prometheus-kube-state-metrics             ClusterIP   10.107.190.79    <none>        8080/TCP                     14m
+service/prometheus-operated                       ClusterIP   None             <none>        9090/TCP                     14m
+service/prometheus-prometheus-node-exporter       ClusterIP   10.107.147.117   <none>        9100/TCP                     14m
+
+NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/prometheus-prometheus-node-exporter   1         1         1       1            1           kubernetes.io/os=linux   14m
+
+NAME                                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/canary-demo                           3/3     3            3           13m
+deployment.apps/canary-demo-canary                    1/1     1            1           13m
+deployment.apps/prometheus-grafana                    1/1     1            1           14m
+deployment.apps/prometheus-kube-prometheus-operator   1/1     1            1           14m
+deployment.apps/prometheus-kube-state-metrics         1/1     1            1           14m
+
+NAME                                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/canary-demo-75687c458d                           3         3         3       13m
+replicaset.apps/canary-demo-canary-54c9f8f4b8                    1         1         1       13m
+replicaset.apps/canary-demo-canary-7d8fbb8c58                    0         0         0       8m38s
+replicaset.apps/prometheus-grafana-77bcfb9bdb                    1         1         1       14m
+replicaset.apps/prometheus-kube-prometheus-operator-6d9d668dbd   1         1         1       14m
+replicaset.apps/prometheus-kube-state-metrics-7457555cf7         1         1         1       14m
+
+NAME                                                                    READY   AGE
+statefulset.apps/alertmanager-prometheus-kube-prometheus-alertmanager   1/1     14m
+statefulset.apps/prometheus-prometheus-kube-prometheus-prometheus       1/1     14m
